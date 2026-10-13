@@ -13,12 +13,23 @@ function App() {
     { name: '武者小路勇気', age: 29, bio: 'フロントエンドエンジニア。ReactとTypeScriptを使って開発中です。' }
   ];
 
-  // index数
+  // index
   const [index, setIndex] = useState(0);
+
+  const handleClick = () => {
+    if(index < 4){
+      setIndex(index + 1)
+    } else {
+      setIndex(0) 
+    }
+  };
 
   return (
     <>
-      <ProfileCard index={index} setIndex={setIndex} profiles={profiles} />
+      <main>
+        <ProfileCard {...profiles[index]} />
+        <button onClick={handleClick}>次のプロフィール</button>
+      </main>
     </>
   )
 }
