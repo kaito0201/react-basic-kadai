@@ -8,14 +8,19 @@ export function Calculator() {
   const handleClick = (btn) => {
     // クリアボタンが押された場合、表示欄を空にする
     if (btn === "C") {
-      setDisplay("");
+      setDisplay("0");
       return;
     } else if (btn === "=") {
       calculate(display);
       return;
     } else {
-      setDisplay(display + btn);
-      return;
+      if (display === "0") {
+        setDisplay(btn);
+        return;
+      }else {
+        setDisplay(display + btn);
+        return;
+      }
     }
   };
 
